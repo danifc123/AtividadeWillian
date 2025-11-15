@@ -1,0 +1,30 @@
+{
+  "name": "geospatial-keyvalue-example",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico demonstrando uso integrado de PostGIS (Geospatial) e Redis (Key-Value)",
+  "main": "src/api/server.js",
+  "scripts": {
+    "start": "node src/api/server.js",
+    "dev": "nodemon src/api/server.js"
+  },
+  "keywords": [
+    "postgis",
+    "redis",
+    "geospatial",
+    "keyvalue",
+    "nodejs",
+    "express"
+  ],
+  "author": "Projeto Acadêmico",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "redis": "^4.6.10",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+

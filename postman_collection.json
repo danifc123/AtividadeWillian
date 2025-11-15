@@ -1,0 +1,251 @@
+{
+  "info": {
+    "name": "Geospatial + KeyValue API",
+    "description": "Coleção de requisições para testar a API de busca geoespacial com cache Redis",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        },
+        "description": "Verifica o status da aplicação e conexões com os bancos de dados"
+      }
+    },
+    {
+      "name": "API Documentation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [""]
+        },
+        "description": "Retorna a documentação da API com lista de endpoints disponíveis"
+      }
+    },
+    {
+      "name": "Busca Próximos - Centro Goiânia (5km)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.6869&lng=-49.2643&radius=5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.6869",
+              "description": "Latitude do centro de Goiânia"
+            },
+            {
+              "key": "lng",
+              "value": "-49.2643",
+              "description": "Longitude do centro de Goiânia"
+            },
+            {
+              "key": "radius",
+              "value": "5",
+              "description": "Raio de busca em quilômetros"
+            }
+          ]
+        },
+        "description": "Busca psicólogos em um raio de 5km do centro de Goiânia"
+      }
+    },
+    {
+      "name": "Busca Próximos - Região Sul (10km)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.7200&lng=-49.2550&radius=10",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.7200",
+              "description": "Latitude da região sul"
+            },
+            {
+              "key": "lng",
+              "value": "-49.2550",
+              "description": "Longitude da região sul"
+            },
+            {
+              "key": "radius",
+              "value": "10",
+              "description": "Raio de busca em quilômetros"
+            }
+          ]
+        },
+        "description": "Busca psicólogos em um raio de 10km da região sul de Goiânia"
+      }
+    },
+    {
+      "name": "Busca Próximos - Aparecida de Goiânia (3km)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.8232&lng=-49.2443&radius=3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.8232",
+              "description": "Latitude de Aparecida de Goiânia"
+            },
+            {
+              "key": "lng",
+              "value": "-49.2443",
+              "description": "Longitude de Aparecida de Goiânia"
+            },
+            {
+              "key": "radius",
+              "value": "3",
+              "description": "Raio de busca em quilômetros"
+            }
+          ]
+        },
+        "description": "Busca psicólogos em um raio de 3km de Aparecida de Goiânia"
+      }
+    },
+    {
+      "name": "Busca Próximos - Região Oeste (15km)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.6950&lng=-49.3100&radius=15",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.6950",
+              "description": "Latitude da região oeste"
+            },
+            {
+              "key": "lng",
+              "value": "-49.3100",
+              "description": "Longitude da região oeste"
+            },
+            {
+              "key": "radius",
+              "value": "15",
+              "description": "Raio de busca em quilômetros"
+            }
+          ]
+        },
+        "description": "Busca psicólogos em um raio de 15km da região oeste de Goiânia"
+      }
+    },
+    {
+      "name": "Busca Próximos - Anápolis (20km)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.3281&lng=-48.9530&radius=20",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.3281",
+              "description": "Latitude de Anápolis"
+            },
+            {
+              "key": "lng",
+              "value": "-48.9530",
+              "description": "Longitude de Anápolis"
+            },
+            {
+              "key": "radius",
+              "value": "20",
+              "description": "Raio de busca em quilômetros"
+            }
+          ]
+        },
+        "description": "Busca psicólogos em um raio de 20km de Anápolis"
+      }
+    },
+    {
+      "name": "Erro - Parâmetros Faltando",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=-16.6869",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "-16.6869"
+            }
+          ]
+        },
+        "description": "Teste de erro quando parâmetros obrigatórios estão faltando (lng e radius)"
+      }
+    },
+    {
+      "name": "Erro - Latitude Inválida",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/nearby?lat=999&lng=-49.2643&radius=5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "nearby"],
+          "query": [
+            {
+              "key": "lat",
+              "value": "999",
+              "description": "Latitude inválida (fora do range -90 a 90)"
+            },
+            {
+              "key": "lng",
+              "value": "-49.2643"
+            },
+            {
+              "key": "radius",
+              "value": "5"
+            }
+          ]
+        },
+        "description": "Teste de erro com latitude fora do range válido"
+      }
+    }
+  ]
+}
+
