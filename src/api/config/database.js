@@ -7,15 +7,17 @@ require('dotenv').config();
  * O Pool mantém múltiplas conexões ativas, reutilizando-as
  * para melhorar performance em aplicações com alto volume de requisições.
  */
+// Configuração do Pool de Conexão com PostgreSQL/PostGIS
 const pool = new Pool({
   host: process.env.POSTGRES_HOST || 'localhost',
-  port: process.env.POSTGRES_PORT || 5432,
+  port: parseInt(process.env.POSTGRES_PORT || '5432'),
   user: process.env.POSTGRES_USER || 'postgres',
   password: process.env.POSTGRES_PASSWORD || 'postgres',
   database: process.env.POSTGRES_DB || 'geospatialdb',
   max: 20, // Número máximo de conexões no pool
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 5000,
+  ssl: false, // Desabilita SSL para conexões locais
 });
 
 /**
