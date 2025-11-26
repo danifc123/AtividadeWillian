@@ -121,9 +121,17 @@ class GeoController {
     } catch (error) {
       console.error('❌ Erro no controller:', error);
       
-      return res.status(500).json({
+      // Determina o código de status HTTP apropriado
+      let statusCode = 500;
+      if (error.message.includes('autenticação') || error.message.includes('conectar')) {
+        statusCode = 503; // Service Unavailable
+      } else if (error.message.includes('Parâmetros') || error.message.includes('deve estar')) {
+        statusCode = 400; // Bad Request
+      }
+      
+      return res.status(statusCode).json({
         success: false,
-        error: 'Erro interno no servidor',
+        error: statusCode === 503 ? 'Serviço temporariamente indisponível' : 'Erro interno no servidor',
         message: error.message,
       });
     }

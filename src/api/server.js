@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const { connectRedis } = require('./config/redis');
+const { testConnection } = require('./config/database');
 const geoController = require('./controllers/geoController');
 
 // Carrega variáveis de ambiente
@@ -75,6 +76,15 @@ async function startServer() {
   try {
     // Conecta ao Redis
     await connectRedis();
+
+    // Testa conexão com PostgreSQL
+    const dbConnected = await testConnection();
+    if (!dbConnected) {
+      console.error('');
+      console.error('⚠️  Aviso: Não foi possível conectar ao PostgreSQL');
+      console.error('⚠️  O servidor irá iniciar, mas as consultas ao banco falharão');
+      console.error('');
+    }
 
     // Inicia o servidor
     app.listen(PORT, () => {

@@ -51,7 +51,19 @@ class PostGISService {
       return result.rows;
     } catch (error) {
       console.error('❌ Erro ao consultar PostGIS:', error);
-      throw new Error('Erro ao buscar psicólogos no banco de dados');
+      
+      // Mensagens de erro mais específicas
+      if (error.code === '28P01') {
+        throw new Error('Erro de autenticação: Verifique as credenciais do PostgreSQL no arquivo .env');
+      } else if (error.code === 'ECONNREFUSED') {
+        throw new Error('Não foi possível conectar ao PostgreSQL: Verifique se o banco está rodando');
+      } else if (error.code === '3D000') {
+        throw new Error('Banco de dados não encontrado: Verifique se o banco "geospatialdb" existe');
+      } else if (error.code === '42P01') {
+        throw new Error('Tabela não encontrada: Execute os scripts SQL em src/sql/ para criar as tabelas');
+      }
+      
+      throw new Error(`Erro ao buscar psicólogos no banco de dados: ${error.message}`);
     }
   }
 
